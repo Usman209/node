@@ -1,0 +1,127 @@
+Getting started with Express
+// code for server generat in express 
+1. import express from 'express'
+2.const port=3000;
+3.const server=express();
+server.listen(3000,()=>{
+    consol.log('server started on port ${port}');
+});
+
+// Create your first Express Route
+
+server.get('/',(req,res)=>{
+    res.send("first route using express.js")
+})
+
+//Serving JSON to Client
+
+1.create json data file
+2.import json file in file where working 
+const buildurl=(version,path)=>'/api/${version}/${path}';
+server.get(buildurl('v1','json created file name'),(req,res)=>{
+    res.send(json created file name)
+
+//Handling POST, PUT, DELETE requests
+
+const STUDENT_BASE_URL=buildurl('v1','json created file name')
+server.get(STUDENT_BASE_URL,(req,res)=>{
+    res.send(json created file name) 
+    res.end();  // for send request back to actual 
+server.post(STUDENT_BASE_URL,(req,res)=>{
+    consol.log("post request")
+    res.end();   
+server.put(STUDENT_BASE_URL,(req,res)=>{
+    consol.log("put request") 
+    res.end();
+server.Delete(STUDENT_BASE_URL,(req,res)=>{
+    consol.log("Delete request")
+    res.end();
+............................................................
+1.Path parameters
+install lodash for map id
+npm-i -S lodash
+import _ from 'lodash'
+
+server.get('${STUDENT_BASE_URL}/id:',(req,res)=>{
+    const var=_.find(json created file name,var=>var.id==req.params.id);
+    if(var){
+        res.json(var)
+    }
+    else
+    {
+         res.json('User ${req.params.id} not found')
+    }
+    res.send(json created file name) 
+    res.end();  // for send request back to actual 
+
+2. Route handlers
+what are Routes
+//Routes are Api end point where clint triger request so when request we actually handle request like here our get,post,put and Delete methods are doing .
+then we send response 
+
+* we can have multiple route handlers aginst a request.
+
+server.get('/route-handling',(req,res,next )=>{      // here next use for to call next handlers
+    res.send("route Handling response");
+    next();                                          //same for next route to call
+},  // in case multiple after this , can define others
+(req,res,next)=>{
+    consol.log("route Handling second response");
+next();
+) (req,res)=>{
+    consol.log("route Handling third response");
+});
+
+// if request does not meet the curtain creataria then we can call next handler which will handle that request
+
+3. Express router
+// express router is an object .perforem middle-ware routing functions
+1. create route folder inside it create filenameRouter.json
+2. import express from 'express'
+3.const router=express.Router();
+ past all STUDENT_BASE_URL involved
+//now here everywhere STUDENT_BASE_URL replace with '/'
+server.get('${STUDENT_BASE_URL}/id:',(req,res)=>{      //like here replace '/:id'
+    const var=_.find(json created file name,var=>var.id==req.params.id);
+    if(var){
+        res.json(var)
+    }
+    else
+    {
+         res.json('User ${req.params.id} not found')
+    }
+    res.send(json created file name) 
+    res.end();  // for send request back to actual 
+
+at end 
+module.exports=router
+import this file in main like app.js 
+in main like app.js here 
+server.use(STUDENT_BASE_URL,filenameRouter)
+ 4.Router param
+ for router param
+
+ if in case request not match
+ route.param('id',(req,res,next,id)=>{
+     if(isNAN(id)){
+         next('Not a number')
+     }
+     next();
+ })
+ 4. Middlewares
+ Middlewares are functions that access request,response and next function
+ everything before response send to clint is Middleware
+// morgan install and use as Middleware
+........................................................
+1. Body parser
+another Middleware body-parser allows parse the request coming from server
+
+2.static contents 
+server.use('/sta',express.static('public'));   // for virtual path use sta could be any name
+
+server.get('/download/images/:imageName',(req,res)=>{     //create folder public->images->abc.jpg then acces loclhost/images/abc.png if want to download then loclhost/download/images/abc.png
+    res.download(path.join('public','images',req.params.imageName));
+    });
+...............................
+
+ejs view enginer , html  and create end point 
