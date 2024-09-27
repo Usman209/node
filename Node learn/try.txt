@@ -1,0 +1,36 @@
+try
+vavagido@taylorventuresllc.com
+vavagido@taylorventuresllc.com1
+usry
+
+usernode
+usernode1
+Express.js Node.js _ MongoDB
+
+development process:
+So you can't really hide it
+http://weworkweplay.com/play/raspberry-pi-nodejs/
+So if you keep most of the logic up in the server it'd protect the code
+And have the code on the Pi react to responses from the server
+That's one way to keep things separate
+And write code on the Pi that reacts to information from the server
+It helps to think of the Pi as a web client
+Here is some more https://webofthings.org/2016/10/23/node-gpio-and-the-raspberry-pi/
+craigsdennis [11:02 AM]
+http://www.instructables.com/id/JavaScript-for-IoT-Blinking-LED-on-Raspberry-Pi-Wi/
+But it is generally open for tinkering
+Sure but I wouldn't worry about that yet
+Of course there are ways around it by making executables
+Chances are you'll end up re-writing it in C after you prototype
+If you mass produce it
+Think of this as tinkering
+First
+Prototyping
+You'll probably end up not worrying about proprietary code
+In my experience
+.........................
+Yes you can
+Again...my guess is you'll end up re-writing for production in C, but yes you could use py2exe or something like that
+Similar stuff for Node
+Not sure what you are building
+Anyways yes to all your questions :wink:
